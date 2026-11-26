@@ -12,12 +12,12 @@ export default function DashboardClient() {
       <div className='grid grid-col-1 gap-6'>
         <div className='flex justify-self-end'>
 
-          <Link href="/Wins">
-               <Button variant="link" className='border border-stone-300 w-24 rounded-full'>Add win</Button>
+          <Link href="/wins">
+               <Button variant="link" className='bg-[#45214F] text-white w-24 rounded-lg'>Add win</Button>
           </Link>
          
         </div>
-        <Card>
+        <Card className='bg-white'>
           <CardHeader>
             <CardContent className='flex flex-col-2 justify-between'>
               <div>Category</div>
@@ -33,7 +33,7 @@ export default function DashboardClient() {
             </div>
           </CardFooter>
         </Card>
-         <Card>
+         <Card className="bg-white">
           <CardHeader>
             <CardContent className='flex flex-col-2 justify-between'>
               <div>Category</div>
@@ -49,7 +49,7 @@ export default function DashboardClient() {
             </div>
           </CardFooter>
         </Card>
-        <Card>
+        <Card className='bg-white'>
           <CardHeader>
             <CardContent className='flex flex-col-2 justify-between'>
               <div>Category</div>

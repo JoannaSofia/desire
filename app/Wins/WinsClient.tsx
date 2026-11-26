@@ -3,7 +3,6 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
-
 import { Textarea } from '@/components/ui/textarea'
 import {
   Field,
@@ -12,7 +11,6 @@ import {
 import { Card, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-
 import { createDesired } from '../actions/desired'
 
 type BadgeType =
@@ -47,7 +45,6 @@ const CARD_TYPES: CardType[] = [
 
 export default function WinsClient() {
   const router = useRouter()
-
   const [title, setTitle] = useState('')
   const [category, setCategory] = useState<CardType | ''>('')
   const [tags, setTags] = useState<BadgeType[]>([])
@@ -90,14 +87,19 @@ export default function WinsClient() {
       formData.append('tags', tag)
     })
 
-    try {
+       try {
       await createDesired(formData)
-      router.push('/dashboard')
+      router.push('/')
     } catch (error) {
-      console.error(error)
-      alert('Could not save your win.')
+      console.error('Saving failed:', error)
+
+      alert(
+        error instanceof Error
+          ? error.message
+          : 'Something went wrong.'
+      )
     }
-  }
+  } 
 
   return (
     <div className='mx-auto w-full max-w-2xl px-6 py-12'>
@@ -147,8 +149,8 @@ export default function WinsClient() {
               }}
               className={`cursor-pointer transition-colors ${
                 category === t
-                  ? 'bg-stone-800 text-white'
-                  : 'bg-stone-100 text-stone-800 hover:bg-stone-200'
+                  ? 'bg-[#F0DADD]'  
+                  : 'bg-white hover:bg-stone-200'
               }`}
             >
               <CardHeader>
@@ -175,7 +177,7 @@ export default function WinsClient() {
               onClick={() => toggleTag(t)}
               className={`cursor-pointer ${
                 tags.includes(t)
-                  ? 'bg-stone-800 text-white'
+                  ? 'bg-[#D98D82]'
                   : 'bg-stone-100 text-stone-800 hover:bg-stone-200'
               }`}
             >
@@ -188,7 +190,7 @@ export default function WinsClient() {
           <Button
             type="button"
             onClick={handleSubmit}
-            className="bg-stone-800 text-white"
+            className="bg-[#45214F] text-white"
           >
             Save
           </Button>

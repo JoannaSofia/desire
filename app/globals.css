@@ -3,8 +3,8 @@
 @import "shadcn/tailwind.css";
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --background: oklch(98% 0.003 67.8);
+  --foreground: oklch(31.9% 0.089 318.5);
   --primary: oklch(43.8% 0.172 340.5); /*Temporary*/
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -40,12 +40,16 @@
 
 body {
   font-family: var(--font-body), sans-serif;
+  background: var(--background);
+  color: var(--foreground);
 }
 
 h1, h2, h3 {
   font-family: var(--font-heading), serif;
+  color: var(--foreground);
 }
 
 h4 {
   font-family: var(--font-body), sans-serif;
+  color: var(--foreground);
 }
